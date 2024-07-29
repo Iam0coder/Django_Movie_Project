@@ -1,0 +1,21 @@
+<!-- films/templates/films/films_list.html -->
+{% extends 'films/base.html' %}
+
+{% block title %}Список фильмов{% endblock %}
+
+{% block content %}
+<h1>Список фильмов</h1>
+{% if films %}
+    {% for film in films %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Название фильма: </strong>{{ film.title }}</h5>
+                <p class="card-text"><strong>Описание фильма: </strong>{{ film.description }}</p>
+                <p class="card-text"><small class="text-muted"><strong>Отзыв: </strong>{{ film.review }}</small></p>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>Нет фильмов.</p>
+{% endif %}
+{% endblock %}
